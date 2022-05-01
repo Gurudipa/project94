@@ -2,8 +2,8 @@
 
 
 var canvas = new fabric.Canvas('myCanvas');
-
-ball_x=0;
+ball_y=300;
+ball_x=350;
 hole_y=400;
 hole_x=800;
 
@@ -27,10 +27,10 @@ function load_img(){
 function new_image()
 {
 	fabric.Image.fromURL("ball.png",function(Img){
-		hole_obj = Img;
-		hole_obj.scaleToWidth(50);
-		hole_obj.scaleToHeight(50);
-		hole_obj.set({
+		ball_obj = Img;
+		ball_obj.scaleToWidth(50);
+		ball_obj.scaleToHeight(50);
+		ball_obj.set({
 			   top:ball_y,
 			   left:ball_x
 		});
@@ -45,11 +45,9 @@ function my_keydown(e)
 	keyPressed = e.keyCode;
 	console.log(keyPressed);
 	if((ball_x==hole_x)&&(ball_y==hole_y)){
-		canvas.remove(ball_obj);
-
-		document.getElementById("hd3").innerHTML="You have Hit the Goal !!!";
+		canvas.remove(ball_obj);	
+		document.getElementById("hd3").innerHTML="You have Hit the Goal!!!";
 		document.getElementById("myCanvas").style.borderColor="red";
-	
 	}
 	
 	
@@ -75,6 +73,8 @@ function my_keydown(e)
 			console.log("right");
 		}
 	}
+		
+		
 	
 	function up()
 	{
